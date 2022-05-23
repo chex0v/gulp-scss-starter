@@ -1,0 +1,143 @@
+.header {
+  padding: 16px 0;
+
+  // .header__wrapper
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .header__logo
+
+  &__logo {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  // .header__logo_link
+  &__logo_link {
+    color: #000;
+    font-weight: bold;
+  }
+
+  // .header__nav
+
+  &__nav {
+    align-items: center;
+  }
+
+  // .header__list
+
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    // .header__list_item
+
+    &_item {
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: $breakPoint768) {
+      display: none;
+    }
+  }
+
+  // .header__link
+
+  &__link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    color: $primary;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.--burger-header {
+  position: relative;
+}
+
+.--burger-header {
+  .header {
+    &__list {
+      position: fixed;
+      background-color: $neutral;
+      width: 100%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      z-index: 100;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__link {
+      color: #fff;
+      font-size: 24px;
+    }
+    &__list {
+      display: flex !important;
+      .btn  {
+        background: $primary;
+      }
+    }
+  }
+}
+
+.hamburger_menu {
+  // .hamburger_menu__toggle
+  z-index: 200;
+  display: none;
+
+  @media screen and (max-width: $breakPoint768) {
+    display: block;
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  &__toggle:checked + &__arrows &__top {
+    transform: rotate(-45deg);
+    margin-top: 25px;
+  }
+  &__toggle:checked + &__arrows &__bottom {
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+  &__toggle:checked + &__arrows &__center {
+    transform: rotate(45deg);
+    margin-top: -3px;
+  }
+
+  // .hamburger_menu__arrows
+
+  &__arrows {
+    position: absolute;
+    top: 3.5em;
+    right: 5%;
+    margin-left: -2em;
+    margin-top: -45px;
+    height: 45px;
+    z-index: 5;
+    cursor: pointer;
+  }
+
+  &__line {
+    position: relative;
+    width: 2em;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $primary;
+    margin-top: 6px;
+    transition: all 0.3s ease-in-out;
+  }
+}
